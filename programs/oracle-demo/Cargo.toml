@@ -10,7 +10,7 @@ crate-type = ["cdylib", "lib"]
 name = "oracle_demo"
 
 [features]
-default = []
+default = ["devnet"]
 devnet = []
 # For development only: accept oracle values regardless of their publication time.
 disable-staleness-check = []
