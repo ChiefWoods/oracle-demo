@@ -1,7 +1,11 @@
 use anchor_lang::prelude::*;
 use pyth_solana_receiver_sdk::{price_update::PriceUpdateV2, ID as PYTH_RECEIVER_PROGRAM_ID};
 
-use crate::{constants::MAX_TS_STALENESS, instructions::ensure_fresh_slot, price::Price};
+#[cfg(not(feature = "disable-staleness-check"))]
+use crate::constants::MAX_TS_STALENESS;
+#[cfg(not(feature = "disable-staleness-check"))]
+use crate::instructions::ensure_fresh_slot;
+use crate::price::Price;
 
 #[derive(Accounts)]
 pub struct ReadPythCore {}
@@ -23,11 +27,16 @@ pub fn handler(ctx: Context<ReadPythCore>, feed_id: [u8; 32]) -> Result<Price> {
     let mut account_data: &[u8] = &data;
     let price_update = PriceUpdateV2::try_deserialize(&mut account_data)?;
 
-    let clock = Clock::get()?;
-    let price = price_update.get_price_no_older_than(&clock, MAX_TS_STALENESS, &feed_id)?;
+    cfg_if::cfg_if! {
+        if #[cfg(feature = "disable-staleness-check")] {
+            let price = price_update.get_price_unchecked(&feed_id)?;
+        } else {
+            let clock = Clock::get()?;
+            let price = price_update.get_price_no_older_than(&clock, MAX_TS_STALENESS, &feed_id)?;
 
-    // validate staleness
-    ensure_fresh_slot(&clock, price_update.posted_slot)?;
+            ensure_fresh_slot(&clock, price_update.posted_slot)?;
+        }
+    }
 
     Price::scale(i128::from(price.price), price.exponent)
 }

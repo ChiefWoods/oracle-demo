@@ -12,6 +12,8 @@ name = "oracle_demo"
 [features]
 default = []
 devnet = []
+# For development only: accept oracle values regardless of their publication time.
+disable-staleness-check = []
 cpi = ["no-entrypoint"]
 no-entrypoint = []
 no-log-ix-name = []
@@ -26,6 +28,7 @@ borsh = "1.5.7"
 chainlink-data-streams-report = "1.3.0"
 chainlink_solana = "2.0.8"
 chainlink_solana_data_streams = { git = "https://github.com/smartcontractkit/chainlink-data-streams-solana", rev = "893d2340254935fb947c95b6aa8e9e245c65ddc4" }
+cfg-if = "1.0.0"
 pyth-lazer-protocol = "0.46.0"
 pyth-solana-receiver-sdk = "2.0.0"
 switchboard-on-demand = { version = "0.13.0", default-features = false, features = ["solana-v2"] }
