@@ -11,6 +11,7 @@ name = "oracle_demo"
 
 [features]
 default = []
+devnet = []
 cpi = ["no-entrypoint"]
 no-entrypoint = []
 no-log-ix-name = []
