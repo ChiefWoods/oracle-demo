@@ -3,6 +3,10 @@ use borsh::BorshDeserialize;
 
 use crate::{error::OracleDemoError, instructions::ensure_fresh_slot, price::Price};
 
+#[cfg(feature = "devnet")]
+const REDSTONE_PROGRAM_ID: Pubkey = pubkey!("perrHDgcDL9B4coCk24kWDnHJ7bVbphVPMJWgN3Q84k");
+
+#[cfg(not(feature = "devnet"))]
 const REDSTONE_PROGRAM_ID: Pubkey = pubkey!("REDSTBDUecGjwXd6YGPzHSvEUBHQqVRfCcjUVgPiHsr");
 const PRICE_DATA_DISCRIMINATOR: [u8; 8] = [232, 113, 193, 231, 133, 209, 206, 154];
 
