@@ -20,6 +20,12 @@ Anchor program showing how to read from common Solana price oracles.
 agave-install init 3.1.10
 ```
 
+2. Update your Anchor
+
+```sh
+avm use 1.2.0
+```
+
 ### Setup
 
 1. Clone the repository
