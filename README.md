@@ -4,6 +4,18 @@ Anchor program showing how to read from common Solana price oracles.
 
 [Source Repository](https://github.com/ChiefWoods/oracle-demo)
 
+## How It Works
+
+Each instruction can be invoked to obtain a price reading from different oracle providers. The following providers are supported:
+
+- Pyth Core
+- Pyth Lazer
+- Chainlink Data Feeds
+- Chainlink Data Streams
+- Redstone
+- Switchboard On Demand
+- Switchboard Oracle Quote
+
 ## Built With
 
 ### Languages
