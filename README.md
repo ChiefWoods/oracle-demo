@@ -16,6 +16,8 @@ Each instruction can be invoked to obtain a price reading from different oracle 
 - Switchboard On Demand
 - Switchboard Oracle Quote
 
+Note: Stork not added yet, pending Anchor v1 bump
+
 ## Built With
 
 ### Languages
