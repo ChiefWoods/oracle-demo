@@ -56,6 +56,10 @@ pub mod oracle_demo {
         instructions::read_redstone::handler(ctx, feed_id)
     }
 
+    pub fn read_stork(ctx: Context<ReadStork>, feed_id: [u8; 32]) -> Result<Price> {
+        instructions::read_stork::handler(ctx, feed_id)
+    }
+
     pub fn read_switchboard_on_demand(
         ctx: Context<ReadSwitchboardOnDemand>,
         feed_id: [u8; 32],

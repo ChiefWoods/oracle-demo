@@ -13,10 +13,9 @@ Each instruction can be invoked to obtain a price reading from different oracle 
 - Chainlink Data Feeds
 - Chainlink Data Streams
 - Redstone
+- Stork
 - Switchboard On Demand
 - Switchboard Oracle Quote
-
-Note: Stork not added yet, pending Anchor v1 bump
 
 ## Built With
 

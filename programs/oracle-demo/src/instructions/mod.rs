@@ -3,6 +3,7 @@ pub mod read_chainlink_data_streams;
 pub mod read_pyth_core;
 pub mod read_pyth_lazer;
 pub mod read_redstone;
+pub mod read_stork;
 pub mod read_switchboard_on_demand;
 pub mod read_switchboard_oracle_quote;
 
@@ -12,6 +13,7 @@ pub use read_chainlink_data_streams::*;
 pub use read_pyth_core::*;
 pub use read_pyth_lazer::*;
 pub use read_redstone::*;
+pub use read_stork::*;
 pub use read_switchboard_on_demand::*;
 pub use read_switchboard_oracle_quote::*;
 
