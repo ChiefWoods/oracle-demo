@@ -11,7 +11,15 @@ impl Price {
             return err!(OracleDemoError::InvalidPrice);
         }
 
-        let scaled = (value as u128)
+        Self::scale_u128(value as u128, exponent)
+    }
+
+    pub fn scale_u128(value: u128, exponent: i32) -> Result<Self> {
+        if value == 0 {
+            return err!(OracleDemoError::InvalidPrice);
+        }
+
+        let scaled = value
             .checked_mul(u128::from(SCALE))
             .ok_or(OracleDemoError::ArithmeticOverflow)?;
         let scaled = if exponent >= 0 {
