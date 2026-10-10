@@ -44,7 +44,10 @@ impl TemporalNumericValueFeed {
         })
     }
 
-    fn get_latest_canonical_temporal_numeric_value_unchecked(&self, feed_id: &[u8; 32]) -> Result<&TemporalNumericValue> {
+    fn get_latest_canonical_temporal_numeric_value_unchecked(
+        &self,
+        feed_id: &[u8; 32],
+    ) -> Result<&TemporalNumericValue> {
         if self.id != *feed_id {
             return Err(ProgramError::InvalidAccountData.into());
         }
