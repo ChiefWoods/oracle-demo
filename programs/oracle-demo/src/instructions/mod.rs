@@ -1,3 +1,4 @@
+pub mod read_canary;
 pub mod read_chainlink_data_feeds;
 pub mod read_chainlink_data_streams;
 pub mod read_pyth_core;
@@ -8,6 +9,7 @@ pub mod read_switchboard_on_demand;
 pub mod read_switchboard_oracle_quote;
 
 #[allow(ambiguous_glob_reexports)]
+pub use read_canary::*;
 pub use read_chainlink_data_feeds::*;
 pub use read_chainlink_data_streams::*;
 pub use read_pyth_core::*;

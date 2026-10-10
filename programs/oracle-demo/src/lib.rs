@@ -16,6 +16,10 @@ declare_id!("6RkFbpc1VcpMGJjxzEyDxTN2Xr5THdeegYUBxNf6vMoc");
 pub mod oracle_demo {
     use super::*;
 
+    pub fn read_canary(ctx: Context<ReadCanary>) -> Result<Price> {
+        instructions::read_canary::handler(ctx)
+    }
+
     pub fn read_pyth_core(ctx: Context<ReadPythCore>, feed_id: [u8; 32]) -> Result<Price> {
         instructions::read_pyth_core::handler(ctx, feed_id)
     }

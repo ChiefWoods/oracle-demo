@@ -1,3 +1,4 @@
+mod canary;
 mod chainlink_data_feeds;
 mod chainlink_data_streams;
 mod pyth_core;

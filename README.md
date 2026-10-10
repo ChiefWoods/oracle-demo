@@ -8,6 +8,7 @@ Anchor program showing how to read from common Solana price oracles.
 
 Each instruction can be invoked to obtain a price reading from different oracle providers. The following providers are supported:
 
+- Canary
 - Pyth Core
 - Pyth Lazer
 - Chainlink Data Feeds
